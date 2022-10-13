@@ -37,7 +37,7 @@ class ROIC():
         
         #return groupedData.apply(lambda a: a[:])
         #return dataDf
-        print(dataDf)
+        print(dataDf.Date)
     
     
     '''
