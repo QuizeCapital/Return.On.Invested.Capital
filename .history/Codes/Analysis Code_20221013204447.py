@@ -37,7 +37,7 @@ class ROIC():
         
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
    
-        splitGrouped = [groupedData.get_group(x) for x in groupedData.groups][3:-1]
+        splitGrouped = [groupedData.get_group(x) for x in groupedData.groups]
 
         return splitGrouped
         

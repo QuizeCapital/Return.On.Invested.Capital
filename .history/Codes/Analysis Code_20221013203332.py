@@ -35,12 +35,11 @@ class ROIC():
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
         dataDf['Date'] = dataDf.Date.dt.year
         
-        groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
-   
-        splitGrouped = [groupedData.get_group(x) for x in groupedData.groups][3:-1]
-
-        return splitGrouped
         
+        
+        #return groupedData.apply(lambda a: a[:])
+        #return dataDf
+        print(dataDf.groupby(['Date']).apply(lambda a: a[:]))
     
     
     '''
@@ -69,6 +68,5 @@ object  = ROIC(
 )    
 
 print(object.johnDoe())       
-
-for i in object.johnDoe():
-    print(len(i))
+       
+    

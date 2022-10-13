@@ -37,10 +37,11 @@ class ROIC():
         
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
    
-        splitGrouped = [groupedData.get_group(x) for x in groupedData.groups][3:-1]
-
-        return splitGrouped
+        splitGrouped = [groupedData.get_group(x) for x in groupedData.groups]
         
+        #return groupedData.apply(lambda a: a[:])
+        return splitGrouped
+        #print(dataDf.groupby(['Date']).apply(lambda a: a[:]))
     
     
     '''
@@ -68,7 +69,7 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.johnDoe())       
-
+#print(object.johnDoe())       
+       
 for i in object.johnDoe():
     print(len(i))

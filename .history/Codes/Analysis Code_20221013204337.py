@@ -69,6 +69,4 @@ object  = ROIC(
 )    
 
 print(object.johnDoe())       
-
-for i in object.johnDoe():
-    print(len(i))
+       
