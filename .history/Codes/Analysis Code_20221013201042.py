@@ -33,9 +33,8 @@ class ROIC():
         
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
-        groupedData = dataDf.groupby([dataDf.Date.year])
-        
-        return 
+
+        return dataDf.groupby([dataDf.Dateyear, 'Ticker']).apply(lambda a: a[:])
         #return dataDf
     
     
