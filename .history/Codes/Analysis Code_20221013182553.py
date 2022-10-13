@@ -14,9 +14,7 @@ class johnDoe(self):
     def __init__(self, annualHistoricalPrices):
         self.annualHistoricalPrices = annualHistoricalPrices
         
-    '''
-    This function calculates the annual historical 
-    '''
+    #T
         
         
     

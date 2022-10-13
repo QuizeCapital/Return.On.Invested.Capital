@@ -6,17 +6,7 @@ import pandas as pd
 import numpy as np
 
 class johnDoe(self):
-    
-    '''
-    This functions sets the global variables that will be used
-    for our later analysis
-    '''
+    #This functions sets the global va
     def __init__(self, annualHistoricalPrices):
-        self.annualHistoricalPrices = annualHistoricalPrices
-        
-    '''
-    This function calculates the annual historical 
-    '''
-        
         
     

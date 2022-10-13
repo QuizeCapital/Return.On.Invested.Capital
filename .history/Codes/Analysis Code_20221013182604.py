@@ -15,7 +15,7 @@ class johnDoe(self):
         self.annualHistoricalPrices = annualHistoricalPrices
         
     '''
-    This function calculates the annual historical 
+    
     '''
         
         
