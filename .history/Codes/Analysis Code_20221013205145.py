@@ -25,7 +25,7 @@ class ROIC():
         rawData = self.annualROIC
         openData = modulesSmartFactor().openJson(self.annualROIC)
         #flatteingin our dictionary so we can easily
-        #create a dataframe of our data
+        #create a dataframe of ou
         flattenedData = [
         (key, keyJunior, valueJunior) 
          for elements in openData

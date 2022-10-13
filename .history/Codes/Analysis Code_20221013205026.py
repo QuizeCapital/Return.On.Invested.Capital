@@ -17,15 +17,13 @@ class ROIC():
     
     '''
     This function calls the openJson function from the UniversalModules
-    class. It takes the return on invested capital data and returns a list
-    of dataframe grouped by year.
+    class. It takes our 
     '''
     def johnDoe(self):  
         
         rawData = self.annualROIC
         openData = modulesSmartFactor().openJson(self.annualROIC)
-        #flatteingin our dictionary so we can easily
-        #create a dataframe of our data
+        
         flattenedData = [
         (key, keyJunior, valueJunior) 
          for elements in openData
