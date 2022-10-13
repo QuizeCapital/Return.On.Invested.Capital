@@ -24,18 +24,18 @@ class ROIC():
         rawData = self.annualROIC
         openData = modulesSmartFactor().openJson(self.annualROIC)
         
-        flattenedData = [
-        (key, keyJunior, valueJunior) 
-         for elements in openData
-         for key, value in elements.items() 
-         for keyJunior, valueJunior in value.items() 
-        ]
+        # flattenedData = [
+        # (key, keyJunior, keySenior) 
+        #  for elements in openData
+        #  for key, value in elements.items() 
+        #  for valueJunior, valueJunior in value 
+        # ]
         
-        dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
-        dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
-
-        return dataDf.groupby([dataDf.Date.dt.year, 'Ticker']).apply(lambda a: a[:])
-        #return dataDf
+        for elements in openData:
+            for key, value in elements.items():
+                
+                print(value)
+        #return pd.DataFrame(flattenedData)
     
     
     '''
@@ -64,5 +64,5 @@ object  = ROIC(
 )    
 
 print(object.johnDoe())       
-       
+        
     

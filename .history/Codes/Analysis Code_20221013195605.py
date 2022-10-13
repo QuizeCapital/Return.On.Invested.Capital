@@ -32,10 +32,9 @@ class ROIC():
         ]
         
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
-        dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
+        dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y%b')
 
-        return dataDf.groupby([dataDf.Date.dt.year, 'Ticker']).apply(lambda a: a[:])
-        #return dataDf
+        return dataDf.groupby(dataDf.Date.dt.year)
     
     
     '''
@@ -64,5 +63,5 @@ object  = ROIC(
 )    
 
 print(object.johnDoe())       
-       
+        
     
