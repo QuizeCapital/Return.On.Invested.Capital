@@ -5,7 +5,7 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 
-class ROIC():
+class ROIC(self):
     
     '''
     This functions sets the global variables that will be used

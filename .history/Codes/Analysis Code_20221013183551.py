@@ -5,27 +5,18 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 
-class ROIC():
+class ROIC(self):
     
     '''
     This functions sets the global variables that will be used
     for our later analysis
     '''
-    def __init__(self, annualHistoricalPrices, annualROIC):
+    def __init__(self, annualHistoricalPrices):
         self.annualHistoricalPrices = annualHistoricalPrices
-        self.annualROIC = annualROIC
-    
-    def johnDoe(self):  
         
-        rawData = self.annualROIC
-        opendata = modulesSmartFactor.openJson(self.annualROIC)
-         
-        return opendata 
-    '''
-    This function reurns the annual ROIC for each  
-    '''
-    def quintiledROIC(self):
-        pass
+    
+    #This function calculates the average of the dataframe
+    def calculate
     
         
     '''
@@ -40,12 +31,7 @@ class ROIC():
         
         
         
-
-object  = ROIC(
-    '/Users/adamszequi/Desktop/Clones/ROIC /Data/Annual Historical Prices.json',
-    '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
-)    
-
-print(object.johnDoe())       
+        
+          
         
     

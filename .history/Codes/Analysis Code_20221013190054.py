@@ -5,7 +5,7 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 
-class ROIC():
+class ROIC(self):
     
     '''
     This functions sets the global variables that will be used
@@ -17,10 +17,8 @@ class ROIC():
     
     def johnDoe(self):  
         
-        rawData = self.annualROIC
-        opendata = modulesSmartFactor.openJson(self.annualROIC)
-         
-        return opendata 
+        rawData = self.
+          
     '''
     This function reurns the annual ROIC for each  
     '''
@@ -40,12 +38,7 @@ class ROIC():
         
         
         
-
-object  = ROIC(
-    '/Users/adamszequi/Desktop/Clones/ROIC /Data/Annual Historical Prices.json',
-    '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
-)    
-
-print(object.johnDoe())       
+        
+          
         
     

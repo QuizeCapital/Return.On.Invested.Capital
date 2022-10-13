@@ -5,7 +5,7 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 
-class ROIC():
+class ROIC(self):
     
     '''
     This functions sets the global variables that will be used
@@ -18,9 +18,9 @@ class ROIC():
     def johnDoe(self):  
         
         rawData = self.annualROIC
-        opendata = modulesSmartFactor.openJson(self.annualROIC)
+        opendata = modulesSmartFactor.openJson(raw)
          
-        return opendata 
+        return rawData 
     '''
     This function reurns the annual ROIC for each  
     '''
