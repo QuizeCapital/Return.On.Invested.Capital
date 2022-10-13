@@ -16,22 +16,14 @@ class ROIC():
         self.annualROIC = annualROIC
     
     '''
-    This function calls the openJson function from the UniversalModules
-    class. 
+    
     '''
     def johnDoe(self):  
         
         rawData = self.annualROIC
-        openData = modulesSmartFactor().openJson(self.annualROIC)
-        
-        flattenedData = [
-        (key, keyJunior, keySenior) 
-         for elements in openData
-         for key, value in elements.items() 
-         for keyJunior, valueJunior in value 
-        ]
+        opendata = modulesSmartFactor().openJson(self.annualROIC)
          
-        return pd.DataFrame(flattenedData)
+        return pd.DataFrame(opendata)
     
     
     '''

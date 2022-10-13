@@ -26,9 +26,9 @@ class ROIC():
         
         flattenedData = [
         (key, keyJunior, keySenior) 
-         for elements in openData
+         
          for key, value in elements.items() 
-         for keyJunior, valueJunior in value 
+         for elements in openData
         ]
          
         return pd.DataFrame(flattenedData)

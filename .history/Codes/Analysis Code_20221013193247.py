@@ -28,7 +28,7 @@ class ROIC():
         (key, keyJunior, keySenior) 
          for elements in openData
          for key, value in elements.items() 
-         for keyJunior, valueJunior in value 
+         #for keyJunior, valueJunior in value 
         ]
          
         return pd.DataFrame(flattenedData)

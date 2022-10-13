@@ -24,14 +24,12 @@ class ROIC():
         rawData = self.annualROIC
         openData = modulesSmartFactor().openJson(self.annualROIC)
         
-        flattenedData = [
-        (key, keyJunior, keySenior) 
-         for elements in openData
-         for key, value in elements.items() 
-         for keyJunior, valueJunior in value 
-        ]
+        [(key, keyJunior, keySenior) 
+         for keyJunior, valueJunior in key 
          
-        return pd.DataFrame(flattenedData)
+         for key, value in elements.items() for elements in openData
+         
+        return pd.DataFrame(opendata)
     
     
     '''

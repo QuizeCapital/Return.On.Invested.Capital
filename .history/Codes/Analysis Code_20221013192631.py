@@ -22,16 +22,11 @@ class ROIC():
     def johnDoe(self):  
         
         rawData = self.annualROIC
-        openData = modulesSmartFactor().openJson(self.annualROIC)
+        opendata = modulesSmartFactor().openJson(self.annualROIC)
         
-        flattenedData = [
-        (key, keyJunior, keySenior) 
-         for elements in openData
-         for key, value in elements.items() 
-         for keyJunior, valueJunior in value 
-        ]
+        for elemene in openData
          
-        return pd.DataFrame(flattenedData)
+        return pd.DataFrame(opendata)
     
     
     '''
