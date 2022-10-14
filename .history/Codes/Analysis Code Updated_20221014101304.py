@@ -49,14 +49,9 @@ class ROIC():
     '''
     def quintiledROIC(self):
         
-        datadDFList = self.splitDfYears()
+        data = self.splitDfYears()
         
-        quinitledDfs = {data.Date.iloc[0]:
-            data.sort_values(['ROIC'], ascending=[False]) 
-            for data in datadDFList}
-            
-        
-        return quinitledDfs
+        rer
     
         
     '''
@@ -77,6 +72,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.quintiledROIC())       
+print(object.splitDfYears())       
 
 

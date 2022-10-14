@@ -50,10 +50,10 @@ class ROIC():
     def quintiledROIC(self):
         
         datadDFList = self.splitDfYears()
-        
+        #.sort_values(['FCFPS Pct Change (2019-2020)'], ascending=[False])
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False]) 
-            for data in datadDFList}
+            for data in ['a', 'b', 'c']}
             
         
         return quinitledDfs

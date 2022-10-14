@@ -51,6 +51,7 @@ class ROIC():
         
         datadDFList = self.splitDfYears()
         
+        
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False]) 
             for data in datadDFList}
