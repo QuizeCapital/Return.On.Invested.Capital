@@ -40,7 +40,7 @@ class ROIC():
 
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
 
-        return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        return [groupedData.get_group(x) for x in groupedData.groups][3:-1]
         
     
     '''
@@ -79,24 +79,14 @@ class ROIC():
         rawHistoricalPriceData = self.annualHistoricalPrices
         openPriceData = modulesSmartFactor().openJson(rawHistoricalPriceData)
         
-        #flatening our dictionary so we can easily create a dataframe of our data
-        flattenedPriceData = {
-        key:
-        (pd.DataFrame(list(json.loads(value).values()), index=json.loads(value).keys() 
-                       ,columns = ['Annual Log Returns']
-                       )[:-1]).rename_axis('Year', inplace=True)
-
+        #flatteing our dictionary so we can easily create a dataframe of our data
+        flattenedPriceData = [
+        (key, pd.DataFrame(list(json.loads(value).values()), index=json.loads(value).keys()))
          for elements in openPriceData
          for key, value in elements.items() 
-        }
+        ]
         
-        CAGRlist = {
-            key:
-            modulesSmartFactor().compoundedAnnualGrowthRate(value)
-            for key,value in flattenedPriceData.items()
-        }
-        
-        return CAGRlist
+        return flattenedPriceData
     
         
         

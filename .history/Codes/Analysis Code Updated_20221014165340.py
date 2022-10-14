@@ -4,7 +4,7 @@ sys.path.append(path)
 from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
-import json
+import ast
 
 class ROIC():
     
@@ -40,7 +40,7 @@ class ROIC():
 
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
 
-        return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        return [groupedData.get_group(x) for x in groupedData.groups][3:-1]
         
     
     '''
@@ -79,24 +79,28 @@ class ROIC():
         rawHistoricalPriceData = self.annualHistoricalPrices
         openPriceData = modulesSmartFactor().openJson(rawHistoricalPriceData)
         
-        #flatening our dictionary so we can easily create a dataframe of our data
-        flattenedPriceData = {
-        key:
-        (pd.DataFrame(list(json.loads(value).values()), index=json.loads(value).keys() 
-                       ,columns = ['Annual Log Returns']
-                       )[:-1]).rename_axis('Year', inplace=True)
-
-         for elements in openPriceData
-         for key, value in elements.items() 
-        }
+        #flatteing our dictionary so we can easily create a dataframe of our data
+        # flattenedPriceData = [
+        # (key, (pd.DataFrame(list((ast.literal_eval(str(value))).values()), 
+        #                     index=(ast.literal_eval(str(value))).keys()))) 
+        #  for elements in openPriceData
+        #  for key, value in elements.items() 
+        #  #for keyJunior, valueJunior in ast.literal_eval(str(value))
+        # ]
+        for elements in openPriceData:
+            for key, value in elements.items():
+                #print(key, pd.DataFrame(value))
+                print(key)
+                #print(ast.literal_eval(value))
+                value = eval(str(value))
+                print(value)
+                #print(pd.DataFrame(list(value.values()), index=value.keys()))
+        # priceDataDf = pd.DataFrame(
+        #                            flattenedPriceData, 
+        #                            columns = ['Ticker', 'Year', 'Annual Log Return']
+        #                            )
         
-        CAGRlist = {
-            key:
-            modulesSmartFactor().compoundedAnnualGrowthRate(value)
-            for key,value in flattenedPriceData.items()
-        }
-        
-        return CAGRlist
+        #return flattenedPriceData
     
         
         

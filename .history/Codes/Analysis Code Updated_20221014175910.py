@@ -84,7 +84,7 @@ class ROIC():
         key:
         (pd.DataFrame(list(json.loads(value).values()), index=json.loads(value).keys() 
                        ,columns = ['Annual Log Returns']
-                       )[:-1]).rename_axis('Year', inplace=True)
+                       )[:-1]).index.name='ingredient'
 
          for elements in openPriceData
          for key, value in elements.items() 
