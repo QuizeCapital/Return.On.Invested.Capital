@@ -46,9 +46,7 @@ class ROIC():
     
     '''
     This function takes the quintiled ROIC data 
-    and returns a lsit of dictionaries containing
-    year as key and tickers of five quintiles as values
-
+   
     '''
     def quintiledROIC(self):
         
