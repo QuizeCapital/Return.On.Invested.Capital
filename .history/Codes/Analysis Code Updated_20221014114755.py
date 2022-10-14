@@ -61,10 +61,10 @@ class ROIC():
             
         quintileSplitROIC = {
                             key:
-                           
+                            
                             (np.array_split(value['Ticker'].values, 5))
                             for key, value in quinitledDfs.items()
-                            
+                            for count
                             }
                             
 
