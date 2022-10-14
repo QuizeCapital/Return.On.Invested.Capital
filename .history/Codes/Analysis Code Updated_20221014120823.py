@@ -61,8 +61,7 @@ class ROIC():
 
         return {
             key: (np.array_split(value['Ticker'].values, 5)) 
-            for key, value in quinitledDfs.items()
-            }
+            for key, value in quinitledDfs.items()}
     
         
     '''

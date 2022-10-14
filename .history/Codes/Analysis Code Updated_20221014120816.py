@@ -59,10 +59,7 @@ class ROIC():
             .dropna() 
             for data in datadDFList}
 
-        return {
-            key: (np.array_split(value['Ticker'].values, 5)) 
-            for key, value in quinitledDfs.items()
-            }
+        return {key: (np.array_split(value['Ticker'].values, 5)) for key, value in quinitledDfs.items()}
     
         
     '''

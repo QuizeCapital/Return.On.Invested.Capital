@@ -52,17 +52,23 @@ class ROIC():
     def quintiledROIC(self):
         
         datadDFList = self.splitDfYears()
-
+        
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False])
             .replace([np.inf, -np.inf], np.nan)
             .dropna() 
             for data in datadDFList}
+            
+        quintileSplitROIC = {
+                            key:
+                           
+                            (np.array_split(value['Ticker'].values, 5))
+                            for key, value in quinitledDfs.items()
+                            
+                            }
+                            
 
-        return {
-            key: (np.array_split(value['Ticker'].values, 5)) 
-            for key, value in quinitledDfs.items()
-            }
+        return quintileSplitROIC
     
         
     '''

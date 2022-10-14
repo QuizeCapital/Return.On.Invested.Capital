@@ -45,24 +45,28 @@ class ROIC():
         
     
     '''
-    This function takes the quintiled ROIC data 
-    and returns a lsit of dictionaries containing
-    year as key and tickers of five quintiles as values
+    
     '''
     def quintiledROIC(self):
         
         datadDFList = self.splitDfYears()
-
+        
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False])
             .replace([np.inf, -np.inf], np.nan)
             .dropna() 
             for data in datadDFList}
+            
+        quintileSplitROIC = {
+                            key:
+                           
+                            (np.array_split(value['Ticker'].values, 5))
+                            for key, value in quinitledDfs.items()
+                            
+                            }
+                            
 
-        return {
-            key: (np.array_split(value['Ticker'].values, 5)) 
-            for key, value in quinitledDfs.items()
-            }
+        return quintileSplitROIC
     
         
     '''
