@@ -81,11 +81,10 @@ class ROIC():
         
         #flatteing our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = [
-        (key, (pd.DataFrame(list((ast.literal_eval(str(value))).values()), 
-                            index=(ast.literal_eval(str(value))).keys()))) 
+        (key, value,v) 
          for elements in openPriceData
          for key, value in elements.items() 
-         #for keyJunior, valueJunior in ast.literal_eval(str(value))
+         for keyJunior, valueJunior in ast.literal_eval(value)
         ]
         # for elements in openPriceData:
         #     for key, value in elements.items():

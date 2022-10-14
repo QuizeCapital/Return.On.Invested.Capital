@@ -79,27 +79,26 @@ class ROIC():
         rawHistoricalPriceData = self.annualHistoricalPrices
         openPriceData = modulesSmartFactor().openJson(rawHistoricalPriceData)
         
-        #flatteing our dictionary so we can easily create a dataframe of our data
+        flatteing our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = [
-        (key, (pd.DataFrame(list((ast.literal_eval(str(value))).values()), 
-                            index=(ast.literal_eval(str(value))).keys()))) 
+        (key, value) 
          for elements in openPriceData
          for key, value in elements.items() 
-         #for keyJunior, valueJunior in ast.literal_eval(str(value))
+         for keyJunior, valueJunior in ast.literal_eval(value.items() 
         ]
         # for elements in openPriceData:
         #     for key, value in elements.items():
-        #         #print(key, pd.DataFrame(value))
-        #         print(key)
-        #         print(ast.literal_eval(value))
-        #         value = ast.literal_eval(str(value))
-        #         print(pd.DataFrame(list(value.values()), index=value.keys()))
+                
+                #print(key, pd.DataFrame(value))
+                # print(key)
+                # print(value)
+                #print(pd.DataFrame(list(value.values()), index=value.keys()))
         # priceDataDf = pd.DataFrame(
         #                            flattenedPriceData, 
         #                            columns = ['Ticker', 'Year', 'Annual Log Return']
         #                            )
         
-        return flattenedPriceData
+        #return flattenedPriceData
     
         
         
