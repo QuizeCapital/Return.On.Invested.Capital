@@ -71,7 +71,7 @@ class ROIC():
     returns the CAGR for each quintile
     '''
     def cummulativeAnnualGrowthRateQuintiles(self):
-        
+        pass
         
         
         

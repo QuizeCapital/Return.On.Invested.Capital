@@ -58,7 +58,7 @@ class ROIC():
             for data in datadDFList}
 
         return {
-            key: (np.array_split(value['Ticker'].values, 5))
+            key: (np.array_split(value['Ticker'].values, 5)) 
             for key, value in quinitledDfs.items()
             }
     
@@ -71,7 +71,7 @@ class ROIC():
     returns the CAGR for each quintile
     '''
     def cummulativeAnnualGrowthRateQuintiles(self):
-        
+        pass
         
         
         
