@@ -59,16 +59,13 @@ class ROIC():
             .dropna() 
             for data in datadDFList}
             
-        quintileSplitROIC = {
+        quintileSplitEps = [
+                            list(dataframe['Symbol']) 
+                            for dataframe in df
+                            for df in np.array_split(quinitledDfs, 5)]
+                            ]
 
-                            key:
-                            np.array_split(value, 5)
-                            for key, value in quinitledDfs.items()
-                       
-                            }
-                            
-
-        return quintileSplitROIC
+        return quinitledDfs
     
         
     '''

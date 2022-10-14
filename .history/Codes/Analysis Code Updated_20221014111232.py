@@ -45,8 +45,7 @@ class ROIC():
         
     
     '''
-    This function takes the quintiled ROIC data 
-    and returns a dictionary
+    This function takes the quintiled ROIC data and returns a dictionary
    
     '''
     def quintiledROIC(self):
@@ -54,21 +53,11 @@ class ROIC():
         datadDFList = self.splitDfYears()
         
         quinitledDfs = {data.Date.iloc[0]:
-            data.sort_values(['ROIC'], ascending=[False])
-            .replace([np.inf, -np.inf], np.nan)
-            .dropna() 
+            data.sort_values(['ROIC'], ascending=[False]) 
             for data in datadDFList}
             
-        quintileSplitROIC = {
-
-                            key:
-                            np.array_split(value, 5)
-                            for key, value in quinitledDfs.items()
-                       
-                            }
-                            
-
-        return quintileSplitROIC
+        
+        return quinitledDfs
     
         
     '''

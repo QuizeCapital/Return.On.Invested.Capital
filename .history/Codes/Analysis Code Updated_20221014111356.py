@@ -56,19 +56,11 @@ class ROIC():
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False])
             .replace([np.inf, -np.inf], np.nan)
-            .dropna() 
+                .dropna() 
             for data in datadDFList}
             
-        quintileSplitROIC = {
-
-                            key:
-                            np.array_split(value, 5)
-                            for key, value in quinitledDfs.items()
-                       
-                            }
-                            
-
-        return quintileSplitROIC
+        
+        return quinitledDfs
     
         
     '''

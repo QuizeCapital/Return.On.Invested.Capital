@@ -60,15 +60,16 @@ class ROIC():
             for data in datadDFList}
             
         quintileSplitROIC = {
-
-                            key:
-                            np.array_split(value, 5)
+                            #list(dataframe['Ticker']) 
+                            quinitledDfs.keys():
                             for key, value in quinitledDfs.items()
-                       
+                            for df in np.array_split(quinitledDfs.value, 5)
+                            #for df in quinitledDfs.val
+                            #for dataframe in df
                             }
                             
 
-        return quintileSplitROIC
+        return quinitledDfs
     
         
     '''
