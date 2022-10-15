@@ -101,8 +101,8 @@ class ROIC():
         #     #pd.DataFrame(value)
         #     for key,value in flattenedPriceData.items()
         # }
-        # for key,value in flattenedPriceData.items():
-        #     print(key,value)
+        for key,value in flattenedPriceData.items():
+            print(key,value)
         
         
         #return CAGRlist

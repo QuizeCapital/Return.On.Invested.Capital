@@ -5,7 +5,6 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 import json
-import ast
 
 class ROIC():
     
@@ -88,7 +87,7 @@ class ROIC():
         #                #,columns = ['Annual Log Returns']
         #                )[:-1])
         #((json.loads(value).values), (json.loads(value).keys()))
-        (json.loads(value).values)
+        list((value).values)
 
          for elements in openPriceData
          for key, value in elements.items() 

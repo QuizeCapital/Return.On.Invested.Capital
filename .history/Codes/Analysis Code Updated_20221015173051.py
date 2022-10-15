@@ -5,7 +5,6 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 import json
-import ast
 
 class ROIC():
     
@@ -98,7 +97,7 @@ class ROIC():
         #     key:
         #     #(value.cumprod()).tail(1)
         #     #modulesSmartFactor().compoundedAnnualGrowthRate(value)
-        #     #pd.DataFrame(value)
+        #     list(value)
         #     for key,value in flattenedPriceData.items()
         # }
         # for key,value in flattenedPriceData.items():

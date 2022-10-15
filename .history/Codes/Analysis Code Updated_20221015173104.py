@@ -5,7 +5,6 @@ from ExternalModules import modulesSmartFactor
 import pandas as pd
 import numpy as np
 import json
-import ast
 
 class ROIC():
     
@@ -88,19 +87,19 @@ class ROIC():
         #                #,columns = ['Annual Log Returns']
         #                )[:-1])
         #((json.loads(value).values), (json.loads(value).keys()))
-        (json.loads(value).values)
+        json.loads(value).values
 
          for elements in openPriceData
          for key, value in elements.items() 
         }
         
-        # CAGRlist = {
-        #     key:
-        #     #(value.cumprod()).tail(1)
-        #     #modulesSmartFactor().compoundedAnnualGrowthRate(value)
-        #     #pd.DataFrame(value)
-        #     for key,value in flattenedPriceData.items()
-        # }
+        CAGRlist = {
+            key:
+            #(value.cumprod()).tail(1)
+            #modulesSmartFactor().compoundedAnnualGrowthRate(value)
+            list(value)
+            for key,value in flattenedPriceData.items()
+        }
         # for key,value in flattenedPriceData.items():
         #     print(key,value)
         
