@@ -85,8 +85,11 @@ class ROIC():
         flattenedPriceData = {
         key:
         (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
+        #                #,columns = ['Annual Log Returns']
                         )[:-1])
     
+        #((json.loads(value).values), (json.loads(value).keys()))
+        #(json.loads(value).values)
 
          for elements in openPriceData
          for key, value in elements.items() 
@@ -94,8 +97,9 @@ class ROIC():
         
         CAGRlist = {
             key:
+            #(value.cumprod()).tail(1)
             modulesSmartFactor().compoundedAnnualGrowthRate(pd.DataFrame(value))
-        
+            #pd.DataFrame(value)
             for key,value in flattenedPriceData.items()
         }
         

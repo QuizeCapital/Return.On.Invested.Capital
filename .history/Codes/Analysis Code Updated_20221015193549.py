@@ -85,6 +85,7 @@ class ROIC():
         flattenedPriceData = {
         key:
         (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
+        #                #,columns = ['Annual Log Returns']
                         )[:-1])
     
 
