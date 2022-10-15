@@ -71,7 +71,6 @@ class ROIC():
     The function takes quintile separated returns data and 
     returns the CAGR for each quintile
     '''
-    
     def cummulativeAnnualGrowthRateQuintiles(self):
         
         #lets call our quintiles ROIC function
@@ -93,13 +92,9 @@ class ROIC():
         
         CAGRlist = {
             key:
-            #(value.cumprod()).tail(1)
-            modulesSmartFactor().compoundedAnnualGrowthRate(value)
+            (value.cumprod()).tail(1).items
             for key,value in flattenedPriceData.items()
         }
-        for key,value in flattenedPriceData.items():
-            print(key,value)
-        
         
         return CAGRlist
         #return flattenedPriceData

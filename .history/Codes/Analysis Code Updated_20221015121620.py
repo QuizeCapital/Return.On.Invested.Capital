@@ -98,7 +98,6 @@ class ROIC():
             for key,value in flattenedPriceData.items()
         }
         for key,value in flattenedPriceData.items():
-            print(key,value)
         
         
         return CAGRlist

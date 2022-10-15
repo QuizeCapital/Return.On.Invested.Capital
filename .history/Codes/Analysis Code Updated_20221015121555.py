@@ -97,8 +97,7 @@ class ROIC():
             modulesSmartFactor().compoundedAnnualGrowthRate(value)
             for key,value in flattenedPriceData.items()
         }
-        for key,value in flattenedPriceData.items():
-            print(key,value)
+        
         
         
         return CAGRlist
