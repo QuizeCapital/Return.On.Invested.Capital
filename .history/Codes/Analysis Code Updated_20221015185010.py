@@ -86,7 +86,7 @@ class ROIC():
         key:
         (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
         #                #,columns = ['Annual Log Returns']
-                        )[:-1])
+                        )[:-1]).values.tolist(),[])
     
         #((json.loads(value).values), (json.loads(value).keys()))
         #(json.loads(value).values)

@@ -86,7 +86,7 @@ class ROIC():
         key:
         (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
         #                #,columns = ['Annual Log Returns']
-                        )[:-1])
+                        )[:-1]).values.tolist()
     
         #((json.loads(value).values), (json.loads(value).keys()))
         #(json.loads(value).values)
@@ -95,19 +95,19 @@ class ROIC():
          for key, value in elements.items() 
         }
         
-        CAGRlist = {
-            key:
-            #(value.cumprod()).tail(1)
-            modulesSmartFactor().compoundedAnnualGrowthRate(pd.DataFrame(value))
-            #pd.DataFrame(value)
-            for key,value in flattenedPriceData.items()
-        }
+        # CAGRlist = {
+        #     key:
+        #     #(value.cumprod()).tail(1)
+        #     #modulesSmartFactor().compoundedAnnualGrowthRate(value)
+        #     #pd.DataFrame(value)
+        #     for key,value in flattenedPriceData.items()
+        # }
         # for key,value in flattenedPriceData.items():
         #     print(key,value)
         
         
-        return CAGRlist
-        #return flattenedPriceData
+        #return CAGRlist
+        return flattenedPriceData
     
         
         

@@ -84,9 +84,9 @@ class ROIC():
         #flattening our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = {
         key:
-        (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
+        sum((pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
         #                #,columns = ['Annual Log Returns']
-                        )[:-1])
+                        )[:-1]).values.tolist(),[])
     
         #((json.loads(value).values), (json.loads(value).keys()))
         #(json.loads(value).values)

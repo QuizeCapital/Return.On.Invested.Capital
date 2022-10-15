@@ -84,9 +84,9 @@ class ROIC():
         #flattening our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = {
         key:
-        (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
+        sum((pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
         #                #,columns = ['Annual Log Returns']
-                        )[:-1])
+                        )[:-1]).values.tolist(),[])
     
         #((json.loads(value).values), (json.loads(value).keys()))
         #(json.loads(value).values)
@@ -98,7 +98,7 @@ class ROIC():
         CAGRlist = {
             key:
             #(value.cumprod()).tail(1)
-            modulesSmartFactor().compoundedAnnualGrowthRate(pd.DataFrame(value))
+            modulesSmartFactor().compoundedAnnualGrowthRate(pd.DataFrame(value)
             #pd.DataFrame(value)
             for key,value in flattenedPriceData.items()
         }
