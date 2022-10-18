@@ -99,6 +99,7 @@ class ROIC():
             
             valueList.append(latestReturn)
             
+            
            
             
         

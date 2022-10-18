@@ -93,15 +93,8 @@ class ROIC():
         
         for key,value in flattenedPriceData.items():
             
-            valueList = []
-            cumprodValuesDf = value.cumprod()
-            latestReturn =  (cumprodValuesDf[-1:]).values
-            
-            valueList.append(latestReturn)
-            
-           
-            
-        
+            cumprodValuesDf = (value.cumprod())
+            latestReturn =  cumprodValuesDf.iloc[-1]
         # CAGRlist = {
         #     key:
         #     value.cumprod()
@@ -109,7 +102,7 @@ class ROIC():
         #     for key,value in flattenedPriceData.items()
         # }
         
-        return  valueList
+        return latestReturn
         
     
         

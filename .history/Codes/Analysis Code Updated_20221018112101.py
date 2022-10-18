@@ -96,10 +96,8 @@ class ROIC():
             valueList = []
             cumprodValuesDf = value.cumprod()
             latestReturn =  (cumprodValuesDf[-1:]).values
-            
-            valueList.append(latestReturn)
-            
-           
+            l
+            print(latestReturn)
             
         
         # CAGRlist = {
@@ -109,7 +107,7 @@ class ROIC():
         #     for key,value in flattenedPriceData.items()
         # }
         
-        return  valueList
+        return  latestReturn
         
     
         

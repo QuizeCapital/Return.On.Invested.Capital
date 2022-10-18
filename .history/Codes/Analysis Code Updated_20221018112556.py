@@ -98,6 +98,7 @@ class ROIC():
             latestReturn =  (cumprodValuesDf[-1:]).values
             
             valueList.append(latestReturn)
+        print(valueList)
             
            
             
@@ -109,7 +110,7 @@ class ROIC():
         #     for key,value in flattenedPriceData.items()
         # }
         
-        return  valueList
+        #return  valueList
         
     
         

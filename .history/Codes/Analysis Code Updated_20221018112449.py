@@ -96,10 +96,9 @@ class ROIC():
             valueList = []
             cumprodValuesDf = value.cumprod()
             latestReturn =  (cumprodValuesDf[-1:]).values
-            
             valueList.append(latestReturn)
             
-           
+            print(valueList)
             
         
         # CAGRlist = {

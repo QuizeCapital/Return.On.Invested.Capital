@@ -98,6 +98,7 @@ class ROIC():
             latestReturn =  (cumprodValuesDf[-1:]).values
             
             valueList.append(latestReturn)
+        print(valueList)
             
            
             

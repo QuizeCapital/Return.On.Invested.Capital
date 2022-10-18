@@ -84,24 +84,15 @@ class ROIC():
         #flattening our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = {
         key:
-        pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
-                        )[:-1]
+        (pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
+                        )[:-1])
 
          for elements in openPriceData
          for key, value in elements.items() 
         }
         
         for key,value in flattenedPriceData.items():
-            
-            valueList = []
-            cumprodValuesDf = value.cumprod()
-            latestReturn =  (cumprodValuesDf[-1:]).values
-            
-            valueList.append(latestReturn)
-            
-           
-            
-        
+            print(value)
         # CAGRlist = {
         #     key:
         #     value.cumprod()
@@ -109,7 +100,7 @@ class ROIC():
         #     for key,value in flattenedPriceData.items()
         # }
         
-        return  valueList
+        #return cumprodValuesDf
         
     
         
