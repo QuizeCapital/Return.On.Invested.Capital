@@ -115,11 +115,11 @@ class ROIC():
                 valueList.append(-((np.power(latestReturn, Inverselength)))-1)
                 #valueList.append(latestReturn[0][0])
             else:
-                latestReturn = None
+                latestReturn = 0
                 valueList.append(latestReturn)
             
-            # print(Inverselength)
-            # print(latestReturn)
+            print(Inverselength)
+            print(latestReturn)
             
             #print(valueList)
             
