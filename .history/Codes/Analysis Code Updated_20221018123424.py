@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import json
 import ast 
-import numpy
+
 class ROIC():
     
     '''
@@ -106,9 +106,7 @@ class ROIC():
             
             if latestReturn.size>0:
                 latestReturn = latestReturn[0][0]
-                #
-                # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append((np.power(latestReturn, Inverselength))-1)
+                valueList.append(((latestReturn)**Inverselength)-1)
                 #valueList.append(latestReturn[0][0])
             else:
                 latestReturn = 0

@@ -108,7 +108,7 @@ class ROIC():
                 latestReturn = latestReturn[0][0]
                 #
                 # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append((np.power(latestReturn, Inverselength))-1)
+                valueList.append(()-1)
                 #valueList.append(latestReturn[0][0])
             else:
                 latestReturn = 0
