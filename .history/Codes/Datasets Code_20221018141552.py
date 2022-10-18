@@ -99,15 +99,15 @@ class Datasets:
                     symbol = (dict.get('symbol', {}))
                     priceDf = pd.DataFrame(priceInfoBulk, columns = ['price', 'date']).iloc[::-1]
                     priceDf['date'] = pd.to_datetime(priceDf['date'], errors='coerce').dt.year
-                    print(priceDf)
+              
                     priceDf['pct_ch'] = (
                         priceDf.groupby(priceDf.date)['price']
-                                #.apply(((pd.Series.pct_change) + 1)).sum()
+                                #  .apply(((pd.Series.pct_change) + 1)).sum())
                                   .apply(
-                                      lambda x: (np.log(x) - np.log(x.shift(1)))
+                                      [;]
                                       )            
                         )
-                    print(priceDf)
+                    
                     groupedPrice = (priceDf.groupby('date')['pct_ch'].sum()).to_json()
 
                     groupedPriceData = {symbol: groupedPrice}
@@ -242,7 +242,7 @@ class Datasets:
       
             return modulesSmartFactor().dumpJson(self.annualQuarterlylogReturnsSandPData, dataDictList)
         
-        return getCleanedHistoricalPriceData(self)
+        return getCleanedSandPQuarterlyHistoricalData(self)
         
 
 outPut = Datasets(
@@ -253,7 +253,6 @@ outPut = Datasets(
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/ROIC (Single Factor Strategy)/Data/Annual S&P Historical Prices.json'
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/ROIC (Single Factor Strategy)/Data/Annual Market Capitalization.json'
     ,'/Users/adamszequi/SmartFactor/Smart-Factor-Research-Files-5/ROIC (Single Factor Strategy)/Data/Quarterly Log returns.json'
-    ,'/Users/adamszequi/Desktop/Clones/ROIC /Data/Annual S&P Data.json'
 )    
 (outPut.getCleanedDatasets())
             

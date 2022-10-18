@@ -104,7 +104,7 @@ class Datasets:
                         priceDf.groupby(priceDf.date)['price']
                                 #.apply(((pd.Series.pct_change) + 1)).sum()
                                   .apply(
-                                      lambda x: (np.log(x) - np.log(x.shift(1)))
+                                      [lambda x: (np.log(x) - np.log(x.shift(1)))]
                                       )            
                         )
                     print(priceDf)
