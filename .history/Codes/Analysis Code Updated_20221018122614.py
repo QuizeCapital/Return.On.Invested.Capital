@@ -115,7 +115,6 @@ class ROIC():
             # print(Inverselength)
             # print(latestReturn)
             
-            print(valueList)
             
             
         

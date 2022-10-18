@@ -105,18 +105,11 @@ class ROIC():
             latestReturn =  (cumprodValuesDf[-1:]).values
             
             if latestReturn.size>0:
-                latestReturn = latestReturn[0][0]
-                valueList.append((latestReturn**Inverselength)-1)
-                #valueList.append(latestReturn[0][0])
+                ((cummulativeReturn.tail(1))**(1/len(dataSet)))-1
+                valueList.append(latestReturn[0][0])
             else:
-                latestReturn = 0
-                valueList.append(latestReturn)
-            
-            # print(Inverselength)
-            # print(latestReturn)
-            
-            print(valueList)
-            
+                valueList.append(0)
+           
             
         
         # CAGRlist = {
@@ -126,7 +119,7 @@ class ROIC():
         #     for key,value in flattenedPriceData.items()
         # }
         
-        return  valueList
+        #return  valueList
         
     
         
