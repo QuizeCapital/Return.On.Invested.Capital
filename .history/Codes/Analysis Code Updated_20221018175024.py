@@ -52,6 +52,7 @@ class ROIC():
     def quintiledROIC(self):
         
         datadDFList = self.splitDfYears()
+        print(datadDFList)
 
         quinitledDfs = {data.Date.iloc[0]:
             data.sort_values(['ROIC'], ascending=[False])
@@ -90,6 +91,7 @@ class ROIC():
          for elements in openPriceData
          for key, value in elements.items() 
         }
+        print()
         valueList = []
         keyList = []
 
@@ -131,6 +133,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.splitDfYears())       
+print(object.cummulativeAnnualGrowthRateQuintiles())       
 
 
