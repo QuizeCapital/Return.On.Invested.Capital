@@ -90,39 +90,28 @@ class ROIC():
          for elements in openPriceData
          for key, value in elements.items() 
         }
-        valueList = []
-        keyList = []
-
-        for key,value in flattenedPriceData.items():
-            keyList.append(key)
+        # 
+        
             
-            cumprodValuesDf = value.add(1).cumprod()
+            # print(Inverselength)
+            # print(latestReturn)
             
-            try:
-        #suppose that number2 is a float
-                Inverselength = 1/len(cumprodValuesDf)
-            except ZeroDivisionError:
-                Inverselength = None
-  
-            latestReturn =  (cumprodValuesDf[-1:]).values
+            #print(valueList)
             
-            if latestReturn.size>0 and latestReturn[0][0] >= 0:
-                latestReturn = latestReturn[0][0]
-                # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, (np.power(latestReturn, Inverselength))-1])
-                #valueList.append(latestReturn[0][0])
-            elif latestReturn.size>0 and latestReturn[0][0] < 0:
-                latestReturn = abs(latestReturn[0][0])
-                # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, -((np.power(latestReturn, Inverselength)))-1])
-                #valueList.append(latestReturn[0][0])
-            else:
-                latestReturn = None
-                valueList.append([key,latestReturn])
+            
+        
+        # CAGRlist = {
+        #     key:
+        #     value.cumprod()
+        
+        #     for key,value in flattenedPriceData.items()
+        # }
+        
+        return  valueList
+        
     
-        return valueList
-    
-    
+        
+        
         
         
 

@@ -90,39 +90,56 @@ class ROIC():
          for elements in openPriceData
          for key, value in elements.items() 
         }
-        valueList = []
-        keyList = []
+        # valueList = []
 
-        for key,value in flattenedPriceData.items():
-            keyList.append(key)
+        # for key,value in flattenedPriceData.items():
             
-            cumprodValuesDf = value.add(1).cumprod()
+        #     cumprodValuesDf = value.add(1).cumprod()
             
-            try:
-        #suppose that number2 is a float
-                Inverselength = 1/len(cumprodValuesDf)
-            except ZeroDivisionError:
-                Inverselength = None
+
+        #     #Inverselength = 1/len(cumprodValuesDf)
+        #     try:
+        # #suppose that number2 is a float
+        #         Inverselength = 1/len(cumprodValuesDf)
+        #     except ZeroDivisionError:
+        #         Inverselength = None
   
-            latestReturn =  (cumprodValuesDf[-1:]).values
+        #     latestReturn =  (cumprodValuesDf[-1:]).values
             
-            if latestReturn.size>0 and latestReturn[0][0] >= 0:
-                latestReturn = latestReturn[0][0]
-                # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, (np.power(latestReturn, Inverselength))-1])
-                #valueList.append(latestReturn[0][0])
-            elif latestReturn.size>0 and latestReturn[0][0] < 0:
-                latestReturn = abs(latestReturn[0][0])
-                # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, -((np.power(latestReturn, Inverselength)))-1])
-                #valueList.append(latestReturn[0][0])
-            else:
-                latestReturn = None
-                valueList.append([key,latestReturn])
+        #     if latestReturn.size>0 and latestReturn[0][0] >= 0:
+        #         latestReturn = latestReturn[0][0]
+        #         # valueList.append(((latestReturn)**Inverselength)-1)              
+        #         valueList.append((np.power(latestReturn, Inverselength))-1)
+        #         #valueList.append(latestReturn[0][0])
+        #     elif latestReturn.size>0 and latestReturn[0][0] < 0:
+        #         latestReturn = abs(latestReturn[0][0])
+        #         # valueList.append(((latestReturn)**Inverselength)-1)              
+        #         valueList.append(-((np.power(latestReturn, Inverselength)))-1)
+        #         #valueList.append(latestReturn[0][0])
+        #     else:
+        #         latestReturn = None
+        #         valueList.append(latestReturn)
+        
+            
+            # print(Inverselength)
+            # print(latestReturn)
+            
+            #print(valueList)
+            
+            
+        
+        CAGRlist = {
+            key:
+            cagrValue = modulesSmartFactor().cummulativeAnnualGrowthRate(value)
+        
+            for key,value in flattenedPriceData.items()
+        }
+        
+        return  CAGRlist
+        
     
-        return valueList
-    
-    
+        
+        
         
         
 

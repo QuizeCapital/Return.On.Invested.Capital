@@ -109,12 +109,12 @@ class ROIC():
             if latestReturn.size>0 and latestReturn[0][0] >= 0:
                 latestReturn = latestReturn[0][0]
                 # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, (np.power(latestReturn, Inverselength))-1])
+                valueList.append((np.power(latestReturn, Inverselength))-1)
                 #valueList.append(latestReturn[0][0])
             elif latestReturn.size>0 and latestReturn[0][0] < 0:
                 latestReturn = abs(latestReturn[0][0])
                 # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, -((np.power(latestReturn, Inverselength)))-1])
+                valueList.append([key,-((np.power(latestReturn, Inverselength)))-1])
                 #valueList.append(latestReturn[0][0])
             else:
                 latestReturn = None
@@ -122,7 +122,8 @@ class ROIC():
     
         return valueList
     
-    
+        
+        
         
         
 

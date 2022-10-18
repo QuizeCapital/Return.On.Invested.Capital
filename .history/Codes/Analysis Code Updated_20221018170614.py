@@ -91,13 +91,14 @@ class ROIC():
          for key, value in elements.items() 
         }
         valueList = []
-        keyList = []
 
         for key,value in flattenedPriceData.items():
-            keyList.append(key)
+            cumprodValuesDf = value.add(1)
+            print(cumprodValuesDf)
+            #cumprodValuesDf = value.cumprod()
             
-            cumprodValuesDf = value.add(1).cumprod()
-            
+
+            #Inverselength = 1/len(cumprodValuesDf)
             try:
         #suppose that number2 is a float
                 Inverselength = 1/len(cumprodValuesDf)
@@ -109,20 +110,36 @@ class ROIC():
             if latestReturn.size>0 and latestReturn[0][0] >= 0:
                 latestReturn = latestReturn[0][0]
                 # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, (np.power(latestReturn, Inverselength))-1])
+                valueList.append((np.power(latestReturn, Inverselength))-1)
                 #valueList.append(latestReturn[0][0])
             elif latestReturn.size>0 and latestReturn[0][0] < 0:
                 latestReturn = abs(latestReturn[0][0])
                 # valueList.append(((latestReturn)**Inverselength)-1)              
-                valueList.append([key, -((np.power(latestReturn, Inverselength)))-1])
+                valueList.append(-((np.power(latestReturn, Inverselength)))-1)
                 #valueList.append(latestReturn[0][0])
             else:
                 latestReturn = None
-                valueList.append([key,latestReturn])
+                valueList.append(latestReturn)
+            
+            # print(Inverselength)
+            # print(latestReturn)
+            
+            #print(valueList)
+            
+            
+        
+        # CAGRlist = {
+        #     key:
+        #     value.cumprod()
+        
+        #     for key,value in flattenedPriceData.items()
+        # }
+        
+        return  flattenedPriceData
+        
     
-        return valueList
-    
-    
+        
+        
         
         
 

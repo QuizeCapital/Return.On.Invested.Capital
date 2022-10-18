@@ -108,7 +108,7 @@ class Datasets:
                                       )            
                         )
                     
-                    groupedPrice = ((priceDf.groupby('date')['pct_ch'].sum())+1).to_json()
+                    groupedPrice = (priceDf.groupby('date')['pct_ch'].sum()).to_json()
 
                     groupedPriceData = {symbol: groupedPrice}
                      

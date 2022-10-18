@@ -99,16 +99,17 @@ class Datasets:
                     symbol = (dict.get('symbol', {}))
                     priceDf = pd.DataFrame(priceInfoBulk, columns = ['price', 'date']).iloc[::-1]
                     priceDf['date'] = pd.to_datetime(priceDf['date'], errors='coerce').dt.year
-
+                    print(priceDf)
                     priceDf['pct_ch'] = (
                         priceDf.groupby(priceDf.date)['price']
                                 #.apply(((pd.Series.pct_change) + 1)).sum()
                                   .apply(
                                       lambda x: (np.log(x) - np.log(x.shift(1)))
+                                      np.log(df.price) - np.log(df.price.shift(1))
                                       )            
                         )
-                    
-                    groupedPrice = ((priceDf.groupby('date')['pct_ch'].sum())+1).to_json()
+                    print(priceDf)
+                    groupedPrice = (priceDf.groupby('date')['pct_ch'].sum()).to_json()
 
                     groupedPriceData = {symbol: groupedPrice}
                      

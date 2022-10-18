@@ -131,6 +131,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.cummulativeAnnualGrowthRateQuintiles())       
+print(object.quintiledROIC())       
 
 
