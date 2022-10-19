@@ -35,7 +35,7 @@ class ROIC():
          for keyJunior, valueJunior in value.items() 
         ]
         
-        print(flattenedData)
+        print(flattee)
 
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
