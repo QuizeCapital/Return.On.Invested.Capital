@@ -99,7 +99,7 @@ class ROIC():
                         )[:-1]
         
         for elements in openPriceData
-        for key, value in elements.items() 
+         for key, value in elements.items() 
         }
         
         print(flattenedPriceData)

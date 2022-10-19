@@ -97,13 +97,10 @@ class ROIC():
         key:
         pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
                         )[:-1]
-        
-        for elements in openPriceData
-        for key, value in elements.items() 
-        }
-        
         print(flattenedPriceData)
-        
+         for elements in openPriceData
+         for key, value in elements.items() 
+        }
         valueList = []
         keyList = []
 
