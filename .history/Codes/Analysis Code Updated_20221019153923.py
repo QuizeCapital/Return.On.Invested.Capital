@@ -43,7 +43,7 @@ class ROIC():
         grouper = groupby(sorter, key=itemgetter(0))
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         
-        #pprint.pprint(res)
+        # pprint.pprint(res)
         # pprint.pprint(flattenedData)
 
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
@@ -52,7 +52,7 @@ class ROIC():
 
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
 
-        return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        return [groupedData.get_group(x) for x in groupedData.groups][]
         
     
     '''
@@ -102,6 +102,7 @@ class ROIC():
         for key, value in elements.items() 
         }
         
+        print(flattenedPriceData)
         
         valueList = []
         keyList = []

@@ -133,7 +133,7 @@ class ROIC():
                 latestReturn = None
                 valueList.append([key,latestReturn])
     
-        return valueList
+        #return valueList
     
     
         

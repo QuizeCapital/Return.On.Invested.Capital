@@ -102,6 +102,7 @@ class ROIC():
         for key, value in elements.items() 
         }
         
+        print(flattenedPriceData)
         
         valueList = []
         keyList = []
@@ -133,7 +134,7 @@ class ROIC():
                 latestReturn = None
                 valueList.append([key,latestReturn])
     
-        return valueList
+        #return valueList
     
     
         
