@@ -11,7 +11,6 @@ import pprint
 from itertools import groupby
 from operator import itemgetter
 import statistics
-from statistics import mean
 
 
 class ROIC():
@@ -43,21 +42,10 @@ class ROIC():
         ]
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
-        
-        for i,j in grouper:
-            data = (list(map(itemgetter(2), j)))
-            if len(data) > 0:
-                dataAvg = [i for i in data if i is not None]
-                #print(data)
-                avgRoic = np.nanmean(data)
-            else:
-                avgRoic = None
-            #print(i, avgRoic)
-        #mean(d for d in data[0] if d is not None)
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
-        #res = {i: (mean(list(map(itemgetter(2), j))) if len(list(map(itemgetter(2), j))) != None else 0) for i, j in grouper}
-             
+       
         pprint.pprint(res)
+        # pprint.pprint(flattenedData)
 
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
@@ -146,7 +134,7 @@ class ROIC():
                 latestReturn = None
                 valueList.append([key,latestReturn])
     
-        #return valueList
+        return valueList
     
     
         

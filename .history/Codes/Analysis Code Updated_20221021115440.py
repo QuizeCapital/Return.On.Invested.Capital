@@ -47,7 +47,7 @@ class ROIC():
         for i,j in grouper:
             data = (list(map(itemgetter(2), j)))
             if len(data) > 0:
-                dataAvg = [i for i in data if i is not None]
+                #dataAvg = [i for i in data if i is not None]
                 #print(data)
                 avgRoic = np.nanmean(data)
             else:
