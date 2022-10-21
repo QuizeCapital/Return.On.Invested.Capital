@@ -49,7 +49,7 @@ class ROIC():
    
         for i,j in grouper:
     
-            print(i)
+            
             data = list(map(itemgetter(2), j))
             if len(data) > 0:
                 dataAvg = [i for i in data if i is not None]
