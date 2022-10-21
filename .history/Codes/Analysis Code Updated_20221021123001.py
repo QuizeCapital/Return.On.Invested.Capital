@@ -46,7 +46,7 @@ class ROIC():
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         #pprint.pprint(res)
         avgList = []
-   
+        print('x')
         for i,j in grouper:
     
             

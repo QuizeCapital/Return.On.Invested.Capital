@@ -46,12 +46,10 @@ class ROIC():
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         #pprint.pprint(res)
         avgList = []
-   
+        
         for i,j in grouper:
-    
             
-            data = list(map(itemgetter(2), j))
-            print(data)
+            data = (list(map(itemgetter(2), j)))
             if len(data) > 0:
                 dataAvg = [i for i in data if i is not None]
                 #print(data)

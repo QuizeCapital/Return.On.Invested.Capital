@@ -46,20 +46,22 @@ class ROIC():
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         #pprint.pprint(res)
         avgList = []
-   
+        
         for i,j in grouper:
-    
-            
-            data = list(map(itemgetter(2), j))
-            print(data)
-            if len(data) > 0:
+            data = 
+            if data := (list(map(itemgetter(2), j))):
                 dataAvg = [i for i in data if i is not None]
                 #print(data)
                 avgRoic = np.nanmean(dataAvg)
             else:
                 avgRoic = None
-            
+
             avgList.append([i, avgRoic])
+        #mean(d for d in data[0] if d is not None)
+
+        #res = {i: (mean(list(map(itemgetter(2), j))) if len(list(map(itemgetter(2), j))) != None else 0) for i, j in grouper}
+
+
 
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
