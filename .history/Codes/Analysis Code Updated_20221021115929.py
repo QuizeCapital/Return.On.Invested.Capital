@@ -42,25 +42,23 @@ class ROIC():
          for keyJunior, valueJunior in value.items() 
         ]
         sorter = sorted(flattenedData, key=itemgetter(0))
-        grouper = groupby(sorter, key=itemgetter(0))
+        grouper = groupby(sorter, key=itemgetter(0)) 
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
-        #pprint.pprint(res)
-        avgList = []
         
         for i,j in grouper:
-            if data := (list(map(itemgetter(2), j))):
+            data = (list(map(itemgetter(2), j)))
+            if len(data) > 0:
                 dataAvg = [i for i in data if i is not None]
                 #print(data)
-                avgRoic = np.nanmean(dataAvg)
+                avgRoic = np.nanmean(data)
             else:
                 avgRoic = None
-
-            avgList.append([i, avgRoic])
+            #print(i, avgRoic)
         #mean(d for d in data[0] if d is not None)
-
+       
         #res = {i: (mean(list(map(itemgetter(2), j))) if len(list(map(itemgetter(2), j))) != None else 0) for i, j in grouper}
-
-
+             
+        pprint.pprint(res)
 
         dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
         dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
@@ -68,8 +66,8 @@ class ROIC():
 
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
 
-        #return [groupedData.get_group(x) for x in groupedData.groups][:-1]
-        return avgList
+        return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        
     
     '''
     This function takes the quintiled ROIC data 
@@ -160,6 +158,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.splitDfYears())       
+print(object.cummulativeAnnualGrowthRateQuintiles())       
 
 

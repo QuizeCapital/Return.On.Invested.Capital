@@ -45,17 +45,16 @@ class ROIC():
         grouper = groupby(sorter, key=itemgetter(0))
         res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         #pprint.pprint(res)
-        avgList = []
-        
+
         for i,j in grouper:
             if data := (list(map(itemgetter(2), j))):
                 dataAvg = [i for i in data if i is not None]
                 #print(data)
-                avgRoic = np.nanmean(dataAvg)
+                avgRoic = np.nanmean(data)
             else:
                 avgRoic = None
 
-            avgList.append([i, avgRoic])
+        print(i, avgRoic)
         #mean(d for d in data[0] if d is not None)
 
         #res = {i: (mean(list(map(itemgetter(2), j))) if len(list(map(itemgetter(2), j))) != None else 0) for i, j in grouper}
@@ -68,8 +67,8 @@ class ROIC():
 
         groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
 
-        #return [groupedData.get_group(x) for x in groupedData.groups][:-1]
-        return avgList
+        return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        
     
     '''
     This function takes the quintiled ROIC data 

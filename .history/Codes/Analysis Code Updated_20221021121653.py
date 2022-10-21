@@ -55,7 +55,7 @@ class ROIC():
             else:
                 avgRoic = None
 
-            avgList.append([i, avgRoic])
+        avgList.append([i, avgRoic])
         #mean(d for d in data[0] if d is not None)
 
         #res = {i: (mean(list(map(itemgetter(2), j))) if len(list(map(itemgetter(2), j))) != None else 0) for i, j in grouper}

@@ -52,6 +52,7 @@ class ROIC():
                 dataAvg = [i for i in data if i is not None]
                 #print(data)
                 avgRoic = np.nanmean(dataAvg)
+                print
             else:
                 avgRoic = None
 
