@@ -44,28 +44,51 @@ class ROIC():
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
         #res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
-        
+        #pprint.pprint(res)
+        # avgList = []
+        # #print(grouper)
+        # for i,j in grouperX:
+        #     print(i)
+            
+            # data = list(map(itemgetter(2), j))
+            # if len(data) > 0:
+            #     dataAvg = [i for i in data if i is not None]
+            #     #print(data)
+            #     avgRoic = np.nanmean(dataAvg)
+            # else:
+            #     avgRoic = None
+            
+            # avgList.append([i, avgRoic])
+
+        # dataDf = pd.DataFrame(flattenedData, columns = ['Ticker', 'Date', 'ROIC'])
+        # dataDf['Date'] =  pd.to_datetime(dataDf['Date'], format='%Y-%m-%d')
+        # dataDf['Date'] = dataDf.Date.dt.year
+
+        # groupedData = dataDf.groupby(['Date'])#.apply(lambda a: a[:])
         return grouper
     
-    def avgQuintiled(self):
+    def avgQuintiled (self):
         
         symbolROIC = self.splitDfYears()
-
+        
         avgList = []
-
+ 
         for i,j in symbolROIC:
 
             data = list(map(itemgetter(2), j))
-            print(i, data)
-            if data:
+            print()
+            if len(data) > 0:
                 dataAvg = [i for i in data if i is not None]
                 avgRoic = np.nanmean(dataAvg)
             else:
                 avgRoic = None
-
+            
             avgList.append([i, avgRoic])
+        pprint.pprint(avgList)
+        #return avgList
 
-        return avgList
+        #return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        #return avgList
     
     '''
     This function takes the quintiled ROIC data 

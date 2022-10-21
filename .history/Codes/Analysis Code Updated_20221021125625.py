@@ -47,25 +47,28 @@ class ROIC():
         
         return grouper
     
-    def avgQuintiled(self):
+    def avgQuintiled (self):
         
         symbolROIC = self.splitDfYears()
-
+        
         avgList = []
-
+ 
         for i,j in symbolROIC:
 
             data = list(map(itemgetter(2), j))
             print(i, data)
-            if data:
+            if len(data) > 0:
                 dataAvg = [i for i in data if i is not None]
                 avgRoic = np.nanmean(dataAvg)
             else:
                 avgRoic = None
-
+            
             avgList.append([i, avgRoic])
+        pprint.pprint(avgList)
+        #return avgList
 
-        return avgList
+        #return [groupedData.get_group(x) for x in groupedData.groups][:-1]
+        #return avgList
     
     '''
     This function takes the quintiled ROIC data 
