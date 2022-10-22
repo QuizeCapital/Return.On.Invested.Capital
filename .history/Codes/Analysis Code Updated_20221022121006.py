@@ -160,23 +160,19 @@ class ROIC():
     
     def crossCheckCAGRROIC (self):
         
-        final = []
         cagr = self.cummulativeAnnualGrowthRateQuintiles()
         roic = self.quintiledROIC()
-                
+        
+        #final = [[returns[0], cagr[1]] for growth in cagr for returns in roic  if growth[0] in returns[1]]
+        
         for growth in range(len(cagr)):
             for returns in range(len(roic)):
                 if cagr[growth][0] in roic[returns][1]:
-                    final.append([cagr[growth][1], roic[returns][0]])
+                    final.append([cagr[growth][0], cagr[growth][1], roic[returns][0]])
         
         return final
         
-    def groupROICCAGR (self):
-        crossched = self.crossCheckCAGRROIC()
         
-        sorter = sorted(first_list, key=itemgetter(0))
-        grouper = groupby(sorter, key=itemgetter(0))
-        res = {i: list(map(itemgetter(1), j)) for i, j in grouper}
         
 
 object  = ROIC(

@@ -95,6 +95,10 @@ class ROIC():
         split = np.array_split(quintiledDfs, 5)
         return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
     
+    
+    
+    
+    
         
     '''
     This function calculates the cummulative annual growth rate (CAGR).
@@ -157,26 +161,9 @@ class ROIC():
     '''
     
     '''
-    
     def crossCheckCAGRROIC (self):
         
-        final = []
-        cagr = self.cummulativeAnnualGrowthRateQuintiles()
-        roic = self.quintiledROIC()
-                
-        for growth in range(len(cagr)):
-            for returns in range(len(roic)):
-                if cagr[growth][0] in roic[returns][1]:
-                    final.append([cagr[growth][1], roic[returns][0]])
         
-        return final
-        
-    def groupROICCAGR (self):
-        crossched = self.crossCheckCAGRROIC()
-        
-        sorter = sorted(first_list, key=itemgetter(0))
-        grouper = groupby(sorter, key=itemgetter(0))
-        res = {i: list(map(itemgetter(1), j)) for i, j in grouper}
         
 
 object  = ROIC(
@@ -184,6 +171,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.crossCheckCAGRROIC())       
+pprint.pprint(object.cummulativeAnnualGrowthRateQuintiles())       
 
 

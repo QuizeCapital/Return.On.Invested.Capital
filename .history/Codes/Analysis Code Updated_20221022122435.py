@@ -159,7 +159,6 @@ class ROIC():
     '''
     
     def crossCheckCAGRROIC (self):
-        
         final = []
         cagr = self.cummulativeAnnualGrowthRateQuintiles()
         roic = self.quintiledROIC()
