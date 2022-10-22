@@ -48,7 +48,7 @@ class ROIC():
     '''
     This function takes return of the function 'splitDfYears' which contains our 
     symbol and ROIC data. It then creates a list of lists that contains the
-    the quintiles from 0 to 5 and their constituent symbols.
+    the 
     '''
     def avgROICDf(self):
         
@@ -168,6 +168,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.quintiledROIC())       
+print(object.quintiledROIC())       
 
 
