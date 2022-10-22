@@ -43,11 +43,10 @@ class ROIC():
         ]
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
+        #res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         
         return grouper
-    '''
-    This function takes return of the function splitDfYears  which containns our  
-    '''
+    
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
@@ -75,7 +74,7 @@ class ROIC():
     '''
     def quintiledROIC(self):
         splitLength = 5
-
+        
         datadDFList = self.avgROICDf()
 
         # quinitledDfs = {data.Date.iloc[0]:
@@ -89,13 +88,10 @@ class ROIC():
         #     key: (np.array_split(value['Ticker'].values, 5))
         #     for key, value in quinitledDfs.items()
         #     }
-
-        split = np.array_split(quintiledDfs, 5)
-        return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
-    
-    
-    
-    
+        return {
+            for df in np.np.array_split(quintiledDfs, 5)
+            }
+        return quintiledDfs
     
         
     '''

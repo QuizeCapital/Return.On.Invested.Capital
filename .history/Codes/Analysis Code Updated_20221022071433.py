@@ -43,11 +43,10 @@ class ROIC():
         ]
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
+        #res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         
         return grouper
-    '''
-    This function takes return of the function splitDfYears  which containns our  
-    '''
+    
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
@@ -92,9 +91,6 @@ class ROIC():
 
         split = np.array_split(quintiledDfs, 5)
         return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
-    
-    
-    
     
     
         

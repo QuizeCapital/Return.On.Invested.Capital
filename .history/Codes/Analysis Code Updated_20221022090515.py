@@ -46,7 +46,7 @@ class ROIC():
         
         return grouper
     '''
-    This function takes return of the function splitDfYears  which containns our  
+    This function takes return of the function splitDfYears  which contais 
     '''
     def avgROICDf(self):
         

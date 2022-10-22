@@ -43,11 +43,10 @@ class ROIC():
         ]
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
+        #res = {i: list(map(itemgetter(2), j)) for i, j in grouper}
         
         return grouper
-    '''
-    This function takes return of the function splitDfYears  which containns our  
-    '''
+    
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
@@ -74,8 +73,7 @@ class ROIC():
     year as key and tickers of five quintiles as values
     '''
     def quintiledROIC(self):
-        splitLength = 5
-
+        
         datadDFList = self.avgROICDf()
 
         # quinitledDfs = {data.Date.iloc[0]:
@@ -83,19 +81,16 @@ class ROIC():
         #     .replace([np.inf, -np.inf], np.nan)
         #     .dropna() 
         #     for data in datadDFList}
-        quintiledDfs = datadDFList.sort_values(['AvgROIC'], ascending=[False]).replace([np.inf, -np.inf], np.nan).dropna()
+        quintiledDfs = datadDFList.sort_values(['AvgROIC'], 
+                       ascending=[False])
+                       .replace([np.inf, -np.inf], np.nan)
+                       .dropna()
 
         # return {
         #     key: (np.array_split(value['Ticker'].values, 5))
         #     for key, value in quinitledDfs.items()
         #     }
-
-        split = np.array_split(quintiledDfs, 5)
-        return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
-    
-    
-    
-    
+        return quintiledDfs
     
         
     '''
@@ -166,6 +161,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-print(object.quintiledROIC())       
+print(object.avgQuintiled())       
 
 
