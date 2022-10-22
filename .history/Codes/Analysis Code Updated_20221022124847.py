@@ -164,7 +164,6 @@ class ROIC():
         return final
         
     def groupROICCAGR (self):
-        avgList = []
         crosschecked = self.crossCheckCAGRROIC()
         
         sorter = sorted(crosschecked, key=itemgetter(1))
@@ -173,17 +172,16 @@ class ROIC():
         res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
         
         for key, value in res.items():
-           data = value
            if data:
                 dataAvg = [i for i in data if i is not None]
-                avgRoic = np.nanmean(dataAvg)
-           else:
+                 avgRoic = np.nanmean(dataAvg)
+            else:
                 avgRoic = None
 
-           avgList.append([key, avgRoic])    
+            avgList.append([i, avgRoic])    
             
         
-        return avgList
+        return res
         
 
 object  = ROIC(

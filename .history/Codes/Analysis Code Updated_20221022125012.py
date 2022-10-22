@@ -176,11 +176,11 @@ class ROIC():
            data = value
            if data:
                 dataAvg = [i for i in data if i is not None]
-                avgRoic = np.nanmean(dataAvg)
-           else:
+                 avgRoic = np.nanmean(dataAvg)
+            else:
                 avgRoic = None
 
-           avgList.append([key, avgRoic])    
+            avgList.append([i, avgRoic])    
             
         
         return avgList

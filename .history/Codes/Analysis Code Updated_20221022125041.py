@@ -180,7 +180,7 @@ class ROIC():
            else:
                 avgRoic = None
 
-           avgList.append([key, avgRoic])    
+           avgList.append([i, avgRoic])    
             
         
         return avgList

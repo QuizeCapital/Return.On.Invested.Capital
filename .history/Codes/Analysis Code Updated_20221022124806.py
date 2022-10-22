@@ -83,6 +83,10 @@ class ROIC():
   
         quintiledDfs = datadDFList.sort_values(['AvgROIC'], ascending=[False]).replace([np.inf, -np.inf], np.nan).dropna()
 
+        # return {
+        #     key: (np.array_split(value['Ticker'].values, 5))
+        #     for key, value in quinitledDfs.items()
+        #     }
 
         split = np.array_split(quintiledDfs, 5)
         return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
@@ -164,7 +168,6 @@ class ROIC():
         return final
         
     def groupROICCAGR (self):
-        avgList = []
         crosschecked = self.crossCheckCAGRROIC()
         
         sorter = sorted(crosschecked, key=itemgetter(1))
@@ -173,17 +176,9 @@ class ROIC():
         res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
         
         for key, value in res.items():
-           data = value
-           if data:
-                dataAvg = [i for i in data if i is not None]
-                avgRoic = np.nanmean(dataAvg)
-           else:
-                avgRoic = None
-
-           avgList.append([key, avgRoic])    
             
         
-        return avgList
+        return res
         
 
 object  = ROIC(
