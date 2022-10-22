@@ -48,7 +48,6 @@ class ROIC():
     '''
     This function takes return of the function 'splitDfYears' which contains our 
     symbol and ROIC data. It then creates a list of lists that contains the
-    
     '''
     def avgROICDf(self):
         
