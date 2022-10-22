@@ -174,10 +174,9 @@ class ROIC():
     def groupROICCAGR (self):
         crosschecked = self.crossCheckCAGRROIC()
         
-        sorter = sorted(crosschecked, key=itemgetter(1))
-        grouper = groupby(sorter, key=itemgetter(1))
-        #res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
-        res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
+        sorter = sorted(crosschecked, key=itemgetter(0))
+        grouper = groupby(sorter, key=itemgetter(0))
+        res = {i: list(map(itemgetter(1), j)) for i, j in grouper}
         
         return res
         
@@ -187,6 +186,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.groupROICCAGR())       
+pprint.pprint(object.crossCheckCAGRROIC())       
 
 

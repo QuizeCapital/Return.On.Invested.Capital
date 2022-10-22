@@ -176,8 +176,8 @@ class ROIC():
         
         sorter = sorted(crosschecked, key=itemgetter(1))
         grouper = groupby(sorter, key=itemgetter(1))
-        #res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
         res = {i: list(map(itemgetter(0), j)) for i, j in grouper}
+        
         
         return res
         
