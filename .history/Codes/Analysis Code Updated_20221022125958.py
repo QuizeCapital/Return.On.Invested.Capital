@@ -192,6 +192,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.groupROICCAGR())       
+pprint.pprint(object.avgROICDf())       
 
 
