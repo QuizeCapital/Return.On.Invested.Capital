@@ -83,10 +83,9 @@ class ROIC():
 
   
         quintiledDfs = datadDFList.sort_values(['AvgROIC'], ascending=[False]).replace([np.inf, -np.inf], np.nan).dropna()
-        print(quintiledDfs)
+
 
         split = np.array_split(quintiledDfs, 5)
-        
         return [[num, list(split[num]['Ticker'])]  for num in range(len(split))]
     
         
@@ -193,6 +192,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.quintiledROIC())       
+pprint.pprint(object.avgROICDf())       
 
 
