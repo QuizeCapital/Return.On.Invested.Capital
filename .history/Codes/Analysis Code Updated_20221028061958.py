@@ -150,7 +150,7 @@ class ROIC():
         return valueList
     '''
     This function takes the quintiled ROIC tickers data and CAGRs  
-    cross checks them and matches the 
+    cross checks them and matexxhes the 
     '''
     
     def crossCheckCAGRROIC (self):
