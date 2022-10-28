@@ -153,7 +153,7 @@ class ROIC():
     of numbers from 0 to 5 and CAGRs  
     cross checks them and matches the tickers according to their quintiles 
     to their CAGR. It then returns a list containing the quintile ticker segements and 
-    and their associated returns.
+    and their associated returns 
     '''
     
     def crossCheckCAGRROIC (self):

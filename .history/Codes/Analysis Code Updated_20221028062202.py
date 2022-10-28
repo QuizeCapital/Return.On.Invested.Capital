@@ -150,10 +150,9 @@ class ROIC():
         return valueList
     '''
     This function takes the quintiled ROIC tickers segement reperesented by range
-    of numbers from 0 to 5 and CAGRs  
+    of numberd from 0 to 5 data and CAGRs  
     cross checks them and matches the tickers according to their quintiles 
-    to their CAGR. It then returns a list containing the quintile ticker segements and 
-    and their associated returns.
+    to their CAGR. It then returns a list containing the quintile tickers  and their
     '''
     
     def crossCheckCAGRROIC (self):
