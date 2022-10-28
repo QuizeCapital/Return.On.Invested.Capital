@@ -102,43 +102,43 @@ class ROIC():
         
         #lets call our quintiles ROIC function
         tickerQuintiled = self.quintiledROIC()
-        
+
         rawHistoricalPriceData = self.annualHistoricalPrices
         openPriceData = modulesSmartFactor().openJson(rawHistoricalPriceData)
-        
+
         #flattening our dictionary so we can easily create a dataframe of our data
         flattenedPriceData = {
         key:
         pd.DataFrame((json.loads(value).values()), json.loads(value).keys() 
                         )[:-1]
-        
+
         for elements in openPriceData
         for key, value in elements.items() 
         }
-        
-        
+
+
         valueList = []
         keyList = []
 
         for key,value in flattenedPriceData.items():
             keyList.append(key)
-            
+
             cumprodValuesDf = value.add(1).cumprod()
-            
+
             try:
         #suppose that number2 is a float
                 Inverselength = 1/len(cumprodValuesDf)
             except ZeroDivisionError:
                 Inverselength = None
-  
+
             latestReturn =  (cumprodValuesDf[-1:]).values
-            
+
             if latestReturn.size>0 and latestReturn[0][0] >= 0:
                 latestReturn = latestReturn[0][0]
                 # valueList.append(((latestReturn)**Inverselength)-1)              
                 valueList.append([key, (np.power(latestReturn, Inverselength))-1])
                 #valueList.append(latestReturn[0][0])
-            elif latestReturn.size>0 and latestReturn[0][0] < 0:
+            elif latestReturn.size > 0:
                 latestReturn = abs(latestReturn[0][0])
                 # valueList.append(((latestReturn)**Inverselength)-1)              
                 valueList.append([key, -((np.power(latestReturn, Inverselength)))-1])
@@ -146,7 +146,7 @@ class ROIC():
             else:
                 latestReturn = None
                 valueList.append([key,latestReturn])
-    
+
         return valueList
     '''
     This function takes the quintiled ROIC tickers segement reperesented by range
@@ -169,9 +169,7 @@ class ROIC():
         
         return final
     '''
-    This functions takes the list of lists containing the quintile ticker segements and
-    and calculates the average return of each quintile. It then returns a list of 
-    quintiles and average returns of their segements 
+    
     '''  
     def groupROICCAGR (self):
         avgList = []

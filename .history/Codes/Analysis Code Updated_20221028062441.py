@@ -170,8 +170,7 @@ class ROIC():
         return final
     '''
     This functions takes the list of lists containing the quintile ticker segements and
-    and calculates the average return of each quintile. It then returns a list of 
-    quintiles and average returns of their segements 
+    
     '''  
     def groupROICCAGR (self):
         avgList = []
