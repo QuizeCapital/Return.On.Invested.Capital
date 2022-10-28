@@ -41,6 +41,7 @@ class ROIC():
          for key, value in elements.items() 
          for keyJunior, valueJunior in value.items() 
         ]
+        print(flattene)
         #print(flattenedData)
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))

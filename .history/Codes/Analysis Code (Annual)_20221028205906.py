@@ -41,8 +41,10 @@ class ROIC():
          for key, value in elements.items() 
          for keyJunior, valueJunior in value.items() 
         ]
+        
         #print(flattenedData)
         sorter = sorted(flattenedData, key=itemgetter(0))
+        print(sorter)
         grouper = groupby(sorter, key=itemgetter(0))
         
         return grouper
@@ -54,7 +56,7 @@ class ROIC():
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
-
+         
         avgList = []
 
         for i,j in symbolROIC:
@@ -201,6 +203,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.avgROICDf())       
+pprint.pprint(object.splitDfYears())       
 
 

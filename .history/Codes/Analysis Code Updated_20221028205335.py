@@ -60,6 +60,7 @@ class ROIC():
         for i,j in symbolROIC:
 
             data = list(map(itemgetter(2), j))
+           
             
             if data:
                 dataAvg = [i for i in data if i is not None]

@@ -41,6 +41,7 @@ class ROIC():
          for key, value in elements.items() 
          for keyJunior, valueJunior in value.items() 
         ]
+        
         #print(flattenedData)
         sorter = sorted(flattenedData, key=itemgetter(0))
         grouper = groupby(sorter, key=itemgetter(0))
@@ -54,12 +55,14 @@ class ROIC():
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
-
+        #print(symbolROIC)
         avgList = []
 
         for i,j in symbolROIC:
-
+            
             data = list(map(itemgetter(2), j))
+            data1 = list(map(itemgetter(1), j))
+            print(data1)
             
             if data:
                 dataAvg = [i for i in data if i is not None]

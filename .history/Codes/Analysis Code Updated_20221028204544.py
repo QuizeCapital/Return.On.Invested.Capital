@@ -69,7 +69,7 @@ class ROIC():
 
             avgList.append([i, avgRoic])
 
-        return pd.DataFrame (avgList, columns=['Ticker', 'AvgROIC'])
+        prin() pd.DataFrame (avgList, columns=['Ticker', 'AvgROIC'])
     
     '''
     This function takes the quintiled ROIC data 
@@ -201,6 +201,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.avgROICDf())       
+pprint.pprint(object.splitDfYears())       
 
 

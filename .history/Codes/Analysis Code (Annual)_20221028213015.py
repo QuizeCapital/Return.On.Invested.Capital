@@ -41,11 +41,12 @@ class ROIC():
          for key, value in elements.items() 
          for keyJunior, valueJunior in value.items() 
         ]
-        #print(flattenedData)
-        sorter = sorted(flattenedData, key=itemgetter(0))
-        grouper = groupby(sorter, key=itemgetter(0))
         
-        return grouper
+        print(pd.DataFrame(flattenedData))
+        # sorter = sorted(flattenedData, key=itemgetter(1))
+        # grouper = groupby(sorter, key=itemgetter(0))
+        
+        # return grouper
     '''
     This function takes return of the function 'splitDfYears' which contains our 
     symbol and ROIC data. It then creates a list of lists that contains the
@@ -54,12 +55,12 @@ class ROIC():
     def avgROICDf(self):
         
         symbolROIC = self.splitDfYears()
-
         avgList = []
 
         for i,j in symbolROIC:
-
-            data = list(map(itemgetter(2), j))
+            print(i,j)
+            data = list(map(itemgetter(2), j)) 
+            print(data)
             
             if data:
                 dataAvg = [i for i in data if i is not None]
@@ -69,7 +70,7 @@ class ROIC():
 
             avgList.append([i, avgRoic])
 
-        return pd.DataFrame (avgList, columns=['Ticker', 'AvgROIC'])
+        #return pd.DataFrame (avgList, columns=['Ticker', 'AvgROIC'])
     
     '''
     This function takes the quintiled ROIC data 
@@ -201,6 +202,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.avgROICDf())       
+pprint.pprint(object.splitDfYears())       
 
 

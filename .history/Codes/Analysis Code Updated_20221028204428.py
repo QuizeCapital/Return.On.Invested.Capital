@@ -201,6 +201,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.avgROICDf())       
+pprint.pprint(object.splitDfYears())       
 
 

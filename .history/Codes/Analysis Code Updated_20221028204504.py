@@ -68,6 +68,7 @@ class ROIC():
                 avgRoic = None
 
             avgList.append([i, avgRoic])
+        print(avgROIC)
 
         return pd.DataFrame (avgList, columns=['Ticker', 'AvgROIC'])
     
@@ -201,6 +202,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.avgROICDf())       
+pprint.pprint(object.splitDfYears())       
 
 
