@@ -115,7 +115,6 @@ class ROIC():
         for key, value in elements.items() 
         }
         
-        print(flattenedPriceData)
         
         valueList = []
         keyList = []
@@ -201,6 +200,6 @@ object  = ROIC(
     '/Users/adamszequi/Desktop/Clones/ROIC /Data/ROIC data.json'   
 )    
 
-pprint.pprint(object.cummulativeAnnualGrowthRateQuintiles())       
+pprint.pprint(object.quintiledROIC())       
 
 

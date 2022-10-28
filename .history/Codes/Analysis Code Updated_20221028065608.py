@@ -115,7 +115,6 @@ class ROIC():
         for key, value in elements.items() 
         }
         
-        print(flattenedPriceData)
         
         valueList = []
         keyList = []
