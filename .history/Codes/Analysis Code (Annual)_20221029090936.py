@@ -54,8 +54,7 @@ class ROIC():
         # grouper = groupby(sorter, key=itemgetter(0))
         
         splitDfInsplitByYear = {key : np.array_split(value, 5) for key, value in splitByYear.items()}
-        print(splitDfInsplitByYear)
-   
+            
         
         # return grouper
     '''

@@ -52,10 +52,9 @@ class ROIC():
         splitByYear = {k: sortedData[sortedData['Year'] == k] for k in sortedData['Year'].unique()}
         # sorter = sorted(flattenedData, key=itemgetter(1))
         # grouper = groupby(sorter, key=itemgetter(0))
+        #print(splitByYear)
         
-        splitDfInsplitByYear = {key : np.array_split(value, 5) for key, value in splitByYear.items()}
-        print(splitDfInsplitByYear)
-   
+        for key, value in splitByYear
         
         # return grouper
     '''
