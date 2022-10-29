@@ -52,8 +52,7 @@ class ROIC():
         splitByYear = {k: sortedData[sortedData['Year'] == k] for k in sortedData['Year'].unique()}
         # sorter = sorted(flattenedData, key=itemgetter(1))
         # grouper = groupby(sorter, key=itemgetter(0))
-        #print(splitByYear)
-        
+        print(splitByYear)
         
         
         # return grouper

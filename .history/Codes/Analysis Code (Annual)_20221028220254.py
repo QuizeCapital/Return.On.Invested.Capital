@@ -47,14 +47,11 @@ class ROIC():
         flattenedData['Year'] = pd.to_datetime(flattenedData['Year'])
         flattenedData['Year'] = flattenedData['Year'].dt.year
         
-        sortedData =  (flattenedData.groupby(["Year"]).apply(lambda x: x.sort_values(["ROIC"], ascending = False)).reset_index(drop=True))
-        
-        splitByYear = {k: sortedData[sortedData['Year'] == k] for k in sortedData['Year'].unique()}
+        sortedD(
+        (flattenedData.groupby(["Year"]).apply(lambda x: x.sort_values(["ROIC"], ascending = False)).reset_index(drop=True))
+        .to_markdown())
         # sorter = sorted(flattenedData, key=itemgetter(1))
         # grouper = groupby(sorter, key=itemgetter(0))
-        #print(splitByYear)
-        
-        
         
         # return grouper
     '''

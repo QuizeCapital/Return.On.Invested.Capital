@@ -55,7 +55,6 @@ class ROIC():
         #print(splitByYear)
         
         
-        
         # return grouper
     '''
     This function takes return of the function 'splitDfYears' which contains our 
